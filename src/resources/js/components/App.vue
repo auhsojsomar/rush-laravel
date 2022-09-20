@@ -2,9 +2,11 @@
     <div>
         <Navbar></Navbar>
         <div class="container mt-5">
-            <router-link to="/add-employee">Add Employee</router-link>
+            <!-- <router-link to="/add-employee">Add Employee</router-link> -->
+            <Home></Home>
+            <Form></Form>
         </div>
-        <router-view />
+        <!-- <router-view /> -->
     </div>
 </template>
 
@@ -13,28 +15,12 @@ import Form from "./Form.vue";
 import Navbar from "./Navbar.vue";
 import Home from "./Home.vue";
 export default {
-    data() {
-        return {
-            data: [],
-        };
-    },
-    methods: {
-        async getEmployeeList() {
-            await axios
-                .get("http://localhost:8080/api/employees")
-                .then((res) => {
-                    console.log(res);
-                })
-                .catch((err) => alert(err));
-        },
-    },
     components: {
         Form,
         Navbar,
         Home,
     },
     mounted() {
-        this.getEmployeeList();
         console.log("Component mounted.");
     },
 };
